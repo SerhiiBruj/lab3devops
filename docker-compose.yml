@@ -1,0 +1,12 @@
+services:
+  floci:
+    image: floci/floci:latest
+    container_name: floci
+    ports:
+      - "4566:4566"
+    volumes:
+      - ./data/floci:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - FLOCI_HOSTNAME=floci
+    restart: unless-stopped
